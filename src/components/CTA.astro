@@ -1,0 +1,39 @@
+---
+interface Props {
+  heading?: string;
+  subtext?: string;
+}
+
+const {
+  heading = 'Ready to Grow?',
+  subtext = "Tell us where you are, where you want to be, and we'll show you the path. No commitment required.",
+} = Astro.props;
+---
+
+<section class="cta-section" aria-labelledby="cta-heading">
+  <div class="container">
+    <div class="cta-inner">
+      <p class="section-label">Get Started</p>
+      <h2 id="cta-heading">{heading}</h2>
+      <p>{subtext}</p>
+      <div class="cta-buttons">
+        <a
+          href="mailto:hello@cowaty.com"
+          class="btn btn-primary"
+          aria-label="Email Cowaty at hello@cowaty.com"
+        >
+          Email Us
+        </a>
+        <a
+          href="https://wa.me/94787460322"
+          class="btn btn-outline"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Chat with Cowaty on WhatsApp (opens in new tab)"
+        >
+          WhatsApp Us
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

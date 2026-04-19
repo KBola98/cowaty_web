@@ -1,0 +1,168 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath?: string;
+  ogImage?: string;
+  schemaType?: 'WebPage' | 'ContactPage' | 'AboutPage';
+  noIndex?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonicalPath = Astro.url.pathname,
+  ogImage = '/images/og-default.png',
+  schemaType = 'WebPage',
+  noIndex = false,
+} = Astro.props;
+
+const siteUrl = 'https://cowaty.com';
+const canonicalUrl = `${siteUrl}${canonicalPath}`;
+const ogImageUrl = `${siteUrl}${ogImage}`;
+const currentYear = new Date().getFullYear();
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": `${siteUrl}/#organization`,
+  "name": "Cowaty",
+  "alternateName": "Cowaty Digital Agency",
+  "url": siteUrl,
+  "logo": {
+    "@type": "ImageObject",
+    "url": `${siteUrl}/images/logo.png`,
+    "width": 512,
+    "height": 512
+  },
+  "description": "Cowaty is a digital growth agency specialising in SEO, paid advertising, social media marketing, web design, content marketing, email automation, reputation management, and analytics.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "71-75 Shelton Street",
+    "addressLocality": "London",
+    "addressRegion": "Covent Garden",
+    "postalCode": "WC2H 9JQ",
+    "addressCountry": "GB"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "hello@cowaty.com",
+    "contactType": "customer service",
+    "availableLanguage": "English"
+  },
+  "sameAs": [
+    "https://www.instagram.com/creative.cowaty",
+    "https://www.youtube.com/channel/UCQ8jcJkm59G9Hiwqqb1_Cgw/featured",
+    "https://www.facebook.com/cowaty"
+  ]
+};
+
+const webPageSchema: Record<string, unknown> = {
+  "@context": "https://schema.org",
+  "@type": schemaType,
+  "@id": `${canonicalUrl}#webpage`,
+  "url": canonicalUrl,
+  "name": title,
+  "description": description,
+  "isPartOf": {
+    "@id": `${siteUrl}/#website`
+  },
+  "publisher": {
+    "@id": `${siteUrl}/#organization`
+  }
+};
+
+if (schemaType === 'ContactPage') {
+  webPageSchema["mainEntity"] = {
+    "@type": "Organization",
+    "@id": `${siteUrl}/#organization`
+  };
+}
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${siteUrl}/#website`,
+  "url": siteUrl,
+  "name": "Cowaty",
+  "publisher": {
+    "@id": `${siteUrl}/#organization`
+  }
+};
+
+const combinedSchema = {
+  "@context": "https://schema.org",
+  "@graph": [organizationSchema, websiteSchema, webPageSchema]
+};
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- Critical inline CSS: variables + above-fold resets -->
+  <style>
+    :root{--color-bg:#000;--color-accent:#A61D24;--color-text:#fff;--header-height:72px;--font-heading:'Syne',system-ui,sans-serif;--font-body:'Source Sans 3',system-ui,sans-serif}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{-webkit-text-size-adjust:100%}
+    body{background:#000;color:#fff;font-family:var(--font-body);-webkit-font-smoothing:antialiased}
+    .skip-link{position:absolute;top:-100%;left:1rem;background:var(--color-accent);color:#fff;padding:.5rem 1rem;border-radius:6px;font-weight:700;z-index:9999;transition:top .2s ease}
+    .skip-link:focus{top:1rem}
+  </style>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Source+Sans+3:wght@400;600;700&display=swap"
+  />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/images/logo.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="/images/logo.png" />
+
+  <!-- SEO Core -->
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalUrl} />
+  {noIndex && <meta name="robots" content="noindex, nofollow" />}
+  {!noIndex && <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />}
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Cowaty" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:image" content={ogImageUrl} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_GB" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageUrl} />
+
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify(combinedSchema)} />
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <Header currentPath={Astro.url.pathname} />
+  <main id="main-content" tabindex="-1">
+    <slot />
+  </main>
+  <Footer currentYear={currentYear} />
+</body>
+</html>

@@ -1,0 +1,47 @@
+---
+const differentiators = [
+  {
+    number: '01',
+    title: 'Strategy First',
+    description: 'Every engagement starts with a clear growth strategy. We map channels, audiences, and goals before a single pound is spent. No spray-and-pray.',
+  },
+  {
+    number: '02',
+    title: 'Speed to Lead',
+    description: 'Slow agencies lose clients money. We onboard in 48 hours, launch campaigns in days, and iterate in real time — not at the next quarterly review.',
+  },
+  {
+    number: '03',
+    title: 'Full Funnel Ownership',
+    description: 'From first impression to closed deal, we own the whole journey. One team, one P&L view, no finger-pointing between siloed specialists.',
+  },
+  {
+    number: '04',
+    title: 'Transparent Reporting',
+    description: 'You see everything we see — live dashboards, weekly updates, and honest conversations when numbers need explaining. No black boxes.',
+  },
+];
+---
+
+<section class="why-us" id="why-cowaty" aria-labelledby="why-heading">
+  <div class="container">
+    <header class="section-header">
+      <p class="section-label">Why Cowaty</p>
+      <h2 id="why-heading">We're Built Different. On Purpose.</h2>
+      <p>
+        Most agencies optimise for retainers. Cowaty optimises for your growth.
+        Here's what that looks like in practice.
+      </p>
+    </header>
+
+    <div class="why-grid">
+      {differentiators.map(item => (
+        <article class="why-card">
+          <p class="why-number" aria-hidden="true">{item.number}</p>
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

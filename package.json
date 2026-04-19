@@ -1,0 +1,16 @@
+{
+  "name": "cowaty",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "devDependencies": {
+    "astro": "^5.7.0",
+    "@astrojs/sitemap": "^3.2.1",
+    "@astrojs/cloudflare": "^12.0.0"
+  }
+}

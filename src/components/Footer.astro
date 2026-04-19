@@ -1,0 +1,95 @@
+---
+interface Props {
+  currentYear: number;
+}
+
+const { currentYear } = Astro.props;
+---
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo" aria-label="Cowaty — Home">
+          <img src="/images/logo.png" alt="Cowaty shield logo" width="30" height="30" />
+          <span class="footer-logo-text">Cowaty</span>
+        </a>
+        <p class="footer-tagline">
+          Digital marketing built for growth. Strategy first. Results that matter.
+        </p>
+        <div class="footer-social" aria-label="Cowaty on social media">
+          <a
+            href="https://www.instagram.com/creative.cowaty"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-icon"
+            aria-label="Cowaty on Instagram (opens in new tab)"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <a
+            href="https://www.youtube.com/channel/UCQ8jcJkm59G9Hiwqqb1_Cgw/featured"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-icon"
+            aria-label="Cowaty on YouTube (opens in new tab)"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
+              <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <a
+            href="https://www.facebook.com/cowaty"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-icon"
+            aria-label="Cowaty on Facebook (opens in new tab)"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <nav class="footer-nav-group" aria-label="Company pages">
+        <p class="footer-nav-title" aria-hidden="true">Company</p>
+        <a href="/">Home</a>
+        <a href="/#services">Services</a>
+        <a href="/contact">Contact</a>
+        <a href="/careers">Careers</a>
+      </nav>
+
+      <nav class="footer-nav-group" aria-label="Legal pages">
+        <p class="footer-nav-title" aria-hidden="true">Legal</p>
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms-of-service">Terms of Service</a>
+        <a href="/cookie-policy">Cookie Policy</a>
+      </nav>
+
+      <div class="footer-nav-group">
+        <p class="footer-nav-title" aria-hidden="true">Contact</p>
+        <a href="mailto:hello@cowaty.com" aria-label="Email Cowaty">hello@cowaty.com</a>
+        <a
+          href="https://wa.me/94787460322"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp Cowaty (opens in new tab)"
+        >
+          WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copyright">
+        &copy; {currentYear} Cowaty. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>

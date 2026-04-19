@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cowaty.com/sitemap-index.xml

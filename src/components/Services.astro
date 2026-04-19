@@ -1,0 +1,69 @@
+---
+const services = [
+  {
+    name: 'SEO',
+    description: 'Technical SEO, on-page optimisation, and link building that earns sustainable organic visibility — not quick wins that evaporate.',
+    icon: `<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>`,
+  },
+  {
+    name: 'Paid Advertising',
+    description: 'Google Ads and Meta Ads campaigns built around margin, not just clicks. We buy the right traffic at the right cost.',
+    icon: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M2 12h20"/><path d="M6 6l12 12M18 6 6 18"/></svg>`,
+  },
+  {
+    name: 'Social Media Marketing',
+    description: 'Organic social strategy and execution that builds an audience worth having — and converts it into pipeline.',
+    icon: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 2h3v3M22 2l-8 8"/><circle cx="9" cy="15" r="3"/><circle cx="19" cy="5" r="1"/><path d="M2 22 9 15"/><circle cx="5" cy="19" r="3"/></svg>`,
+  },
+  {
+    name: 'Web Design & Development',
+    description: 'Fast, conversion-focused websites built to perform. Every layout decision is tested against what actually drives action.',
+    icon: `<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="m8 21 8 0M12 17v4"/><path d="m9 8 3 3-3 3"/><path d="M13 14h3"/></svg>`,
+  },
+  {
+    name: 'Content Marketing',
+    description: 'Strategic content that ranks, educates, and sells. We write for humans first — and make sure search engines notice.',
+    icon: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>`,
+  },
+  {
+    name: 'Email & Marketing Automation',
+    description: 'Lifecycle email sequences, drip campaigns, and CRM automation that turn leads into customers on autopilot.',
+    icon: `<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>`,
+  },
+  {
+    name: 'Reputation Management',
+    description: "Monitor, respond, and build your brand's reputation across reviews, mentions, and the wider web.",
+    icon: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>`,
+  },
+  {
+    name: 'Analytics & Performance',
+    description: "Clear dashboards and reporting that show what's working, what's not, and exactly where the next pound should go.",
+    icon: `<svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><path d="M2 20h20"/></svg>`,
+  },
+];
+---
+
+<section class="services" id="services" aria-labelledby="services-heading">
+  <div class="container">
+    <header class="section-header">
+      <p class="section-label">What We Do</p>
+      <h2 id="services-heading">Eight Services. One Growth Partner.</h2>
+      <p>
+        Every Cowaty engagement covers the full digital funnel — so you don't lose
+        revenue to gaps between channels or agencies that don't talk to each other.
+      </p>
+    </header>
+
+    <div class="services-grid" role="list">
+      {services.map(service => (
+        <article class="service-card" role="listitem">
+          <div class="service-icon" aria-hidden="true">
+            <Fragment set:html={service.icon} />
+          </div>
+          <h3>{service.name}</h3>
+          <p>{service.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

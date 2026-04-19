@@ -1,0 +1,38 @@
+---
+const stats = [
+  { value: '8', label: 'Core Services' },
+  { value: '3x', label: 'Average ROI' },
+  { value: '48hr', label: 'Onboarding' },
+  { value: '100%', label: 'Transparent Reporting' },
+];
+---
+
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="hero-grid-bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero-content">
+      <p class="hero-eyebrow" aria-label="Digital Growth Agency">Digital Growth Agency</p>
+      <h1 id="hero-heading">
+        Marketing That<br />Moves Revenue.
+      </h1>
+      <p class="hero-sub">
+        Cowaty runs your SEO, paid ads, social, content, and web — fully integrated,
+        fully accountable. No fluff. No vanity metrics. Just growth that compounds.
+      </p>
+      <div class="hero-cta-row">
+        <a href="/contact" class="btn btn-primary">
+          Contact Us
+        </a>
+      </div>
+
+      <dl class="hero-stats" aria-label="Cowaty at a glance">
+        {stats.map(stat => (
+          <div class="stat-item">
+            <dt class="stat-label">{stat.label}</dt>
+            <dd class="stat-value">{stat.value}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </div>
+</section>
