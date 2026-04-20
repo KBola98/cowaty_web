@@ -215,6 +215,10 @@ section {
 }
 
 /* ---------- Header ---------- */
+.site-header .container {
+  height: 100%;
+}
+
 .site-header {
   position: fixed;
   top: 0;

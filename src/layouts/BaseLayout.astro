@@ -109,7 +109,7 @@ const combinedSchema = {
 
   <!-- Critical inline CSS: variables + above-fold resets -->
   <style>
-    :root{--color-bg:#000;--color-accent:#A61D24;--color-text:#fff;--header-height:72px;--font-heading:'Syne',system-ui,sans-serif;--font-body:'Source Sans 3',system-ui,sans-serif}
+    :root{--color-bg:#000;--color-accent:#A61D24;--color-text:#fff;--header-height:80px;--font-heading:'Syne',system-ui,sans-serif;--font-body:'Source Sans 3',system-ui,sans-serif}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{-webkit-text-size-adjust:100%}
     body{background:#000;color:#fff;font-family:var(--font-body);-webkit-font-smoothing:antialiased}
@@ -156,6 +156,15 @@ const combinedSchema = {
 
   <!-- JSON-LD Schema -->
   <script type="application/ld+json" set:html={JSON.stringify(combinedSchema)} />
+
+  <!-- Google Analytics -->
+  <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-EGWPZGCWCK"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-EGWPZGCWCK');
+  </script>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
