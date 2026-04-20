@@ -23,7 +23,7 @@
   --radius: 6px;
   --radius-lg: 12px;
   --max-width: 1200px;
-  --header-height: 72px;
+  --header-height: 80px;
 
   --transition: 0.2s ease;
   --shadow-card: 0 1px 3px rgba(0,0,0,0.5), 0 4px 12px rgba(0,0,0,0.3);
@@ -139,9 +139,9 @@ p {
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1200px) {
   .container {
-    padding-inline: 2.5rem;
+    padding-inline: 4rem;
   }
 }
 
@@ -260,7 +260,7 @@ section {
 .header-nav {
   display: none;
   align-items: center;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 @media (min-width: 768px) {
