@@ -1,0 +1,49 @@
+backend:
+  name: github
+  repo: KBola98/cowaty_web
+  branch: main
+
+media_folder: public/images/uploads
+public_folder: /images/uploads
+
+collections:
+  - name: blog
+    label: Blog
+    folder: src/content/blog
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Description, name: description, widget: text }
+      - { label: Publish Date, name: pubDate, widget: datetime }
+      - { label: Updated Date, name: updatedDate, widget: datetime, required: false }
+      - { label: Featured Image, name: image, widget: image, required: false }
+      - { label: Author, name: author, widget: string, default: "Cowaty Team" }
+      - { label: Tags, name: tags, widget: list }
+      - { label: Draft, name: draft, widget: boolean, default: false }
+      - { label: Body, name: body, widget: markdown }
+
+  - name: services
+    label: Services
+    folder: src/content/services
+    create: true
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Description, name: description, widget: text }
+      - { label: Icon, name: icon, widget: string, required: false }
+      - { label: Price, name: price, widget: string, required: false }
+      - { label: Order, name: order, widget: number, default: 0 }
+      - { label: Featured, name: featured, widget: boolean, default: false }
+
+  - name: testimonials
+    label: Testimonials
+    folder: src/content/testimonials
+    create: true
+    fields:
+      - { label: Client Name, name: clientName, widget: string }
+      - { label: Client Role, name: clientRole, widget: string, required: false }
+      - { label: Company, name: company, widget: string, required: false }
+      - { label: Photo, name: image, widget: image, required: false }
+      - { label: Rating, name: rating, widget: number, default: 5, value_type: int, min: 1, max: 5 }
+      - { label: Order, name: order, widget: number, default: 0 }
+      - { label: Testimonial, name: body, widget: markdown }

@@ -1,0 +1,40 @@
+{
+  "$ref": "#/definitions/testimonials",
+  "definitions": {
+    "testimonials": {
+      "type": "object",
+      "properties": {
+        "clientName": {
+          "type": "string"
+        },
+        "clientRole": {
+          "type": "string"
+        },
+        "company": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "rating": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 5,
+          "default": 5
+        },
+        "order": {
+          "type": "number",
+          "default": 0
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "clientName"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
